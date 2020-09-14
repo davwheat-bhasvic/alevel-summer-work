@@ -43,7 +43,7 @@ int main()
 }
 ```
 
-Add to your program so it uses a new variable to catch the return value from `scanf`. Make sure it displays the value of error, like my program above. Add another couple of lines of code to then read in two numbers, again using your `error` variable, and display the value of error. Now try it with three values.
+Add to your program so it uses a new variable to catch the return value from `scanf`. Make sure it displays the value of error, like my program above. Add another couple of lines of code to then read in two numbers, again using your `error` variable, and display the value of `error`. Now try it with three values.
 
 What is the value of error when an invalid character is typed in?
 
@@ -66,7 +66,7 @@ b. the result of `(float - int) * char`
 
 Write a program that asks for a letter to be input in upper case. The program should then output that letter in lower case.
 
-To do this, think about each letter’s binary ASCII values and how you could use these to convert them.
+To do this, think about each letter's binary ASCII values and how you could use these to convert them.
 
 | Letter | Value |
 | :----: | :---: |
