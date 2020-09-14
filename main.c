@@ -1,43 +1,30 @@
 #include <stdio.h>
-#include <time.h>
+
+#include "exercise1.h"
+#include "exercise2.h"
+
+#include "dateTest.h"
 
 int main() {
-    int year = -1,
-            month = -1,
-            day = -1;
+    int option = -1;
 
+    printf("1. Exercise 1 - multiplication test\n2. Exercise 2 - char -> ASCII value\n3. Date validation test\n\n0. Exit");
 
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
-
-    int nowYear = tm.tm_year,
-            nowMonth = tm.tm_mon,
-            nowDay = tm.tm_mday;
-
-    while (year > nowYear || year < 0) {
-        printf("\nEnter your birth year: ");
-        scanf("%d", &year);
+    while (option < 0 || option > 4) {
+        printf("\n\nChoose an option: ");
+        scanf("%d", &option);
     }
 
-    while (month > 12 || month < 1) {
-        printf("\nEnter your birth month: ");
-        scanf("%d", &month);
+    switch (option) {
+        case 0:
+            return 0;
+        case 1:
+            return exercise1();
+        case 2:
+            return exercise2();
+        case 3:
+            return dateTest();
     }
-
-    while (((month == 9 || month == 4 || month == 6 || month == 11) && day > 30) ||
-           ((month == 2 && (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0)) && day > 29) ||
-           ((month == 2) && day > 28) ||
-           day < 1) {
-        printf("\nEnter your birth day: ");
-        scanf("%d", &day);
-    }
-
-    printf("You were born: %d-%d-%d", year, month, day);
-
-
-    printf("Today's date: %d-%d-%d", nowYear, nowMonth, nowDay);
-
-    // TODO: Calculate difference between the dates
 
     return 0;
 }
