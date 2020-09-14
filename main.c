@@ -2,11 +2,19 @@
 #include <time.h>
 
 int main() {
-    int year = -1;
-    int month = -1;
-    int day = -1;
+    int year = -1,
+            month = -1,
+            day = -1;
 
-    while (year > 2020 || year < 0) {
+
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+
+    int nowYear = tm.tm_year,
+            nowMonth = tm.tm_mon,
+            nowDay = tm.tm_mday;
+
+    while (year > nowYear || year < 0) {
         printf("\nEnter your birth year: ");
         scanf("%d", &year);
     }
@@ -26,12 +34,6 @@ int main() {
 
     printf("You were born: %d-%d-%d", year, month, day);
 
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
-
-    int nowYear = tm.tm_year;
-    int nowMonth = tm.tm_mon;
-    int nowDay = tm.tm_mday;
 
     printf("Today's date: %d-%d-%d", nowYear, nowMonth, nowDay);
 
